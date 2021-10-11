@@ -19,11 +19,20 @@ Car vous semblez déjà avoir cette information avant d'appeler la fonction (vu 
 
 
 """
+import gaming_tools
 
-def account_managment (name)
+def player_managment(name):
 
-player_exists(name)
+    if gaming_tools.player_exists(name) :
+        playermoney = gaming_tools.get_player_money(name)
+        txt = "Player "+ name + " already exists and has {} \n"
+        print(txt.format(playermoney))
+        #print ("Would you like to create a new player ?")
 
-add_new_player(name)
 
-set_player_money(name,money)
+
+
+    else :
+        gaming_tools.add_new_player(name)
+        gaming_tools.set_player_money(name,225)
+        print ("Player "+ name + " is created with 225 credits \n")
